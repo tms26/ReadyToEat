@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <img src="/images/onlyRTE_LOGO.png" alt="Logo" />
+  </div>
+  <div class="navbar-links">
+    <a href="/index">Home</a>
+    <a href="/menus">Menus</a>
+    <a href="/order">Orders</a>
+  </div>
+  <div class="navbar-user">
+    <span> <%= user.lastName %>, <%= user.firstName %></span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">
+        ▼
+      </button>
+      <div class="dropdown-menu">
+        <a href="/users/profile/edit" class="dropdown-item">Edit Profile</a>
+        <a href="/logout" class="dropdown-item">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>

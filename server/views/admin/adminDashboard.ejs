@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/admin/adminRestaurantManagement.css" />
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+      <div class="container bootstrap snippets bootdey">
+        <!-- Navbar Toggle Button for Mobile -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+          >
+            <span class="icon-toggle"></span>
+          </button>
+          <!-- Navbar Logo -->
+          <a class="navbar-brand" >
+            <div class="navbar-logo">
+              <img src="/images/onlyRTE_LOGO.png" alt="Logo" />
+            </div>
+          </a>
+        </div>
+        <!-- Navbar Links -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                role="button"
+                data-toggle="dropdown"
+                href="#"
+              >
+                <i class="glyphicon glyphicon-user"></i> Admin
+                <span class="caret"></span
+              ></a>
+              <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                <li>
+                  <a href="/logout"
+                    ><i class="glyphicon glyphicon-lock"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container bootstrap snippets bootdey">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+         <!-- <a href="#"
+            ><strong
+              ><i class="glyphicon glyphicon-briefcase"></i> Toolbox</strong
+            ></a
+          >-->
+          <hr />
+
+          <ul class="nav nav-pills nav-stacked">
+           <!-- Analytics Links -->
+            <li>
+              <a href="/admin" id="analytics-link"
+                ><i class="glyphicon glyphicon-stats"></i> Analytics - Restaurants</a
+              >
+            </li>
+            <li>
+              <a href="/admin" id="analytics2-link"
+              ><i class="glyphicon glyphicon-signal"></i> Analytics - Orders</a
+              >
+            </li>
+          </ul>
+
+          <hr />
+        </div>
+        <div class="col-md-9">
+          <a href="/admin" id="dashboard-link"
+            >
+              <i class="glyphicon glyphicon-dashboard"></i> My
+              Dashboard
+            </a
+          >
+          <hr />
+          <div id="dynamic-content">
+            <%- include('adminRestaurantManagement', { restaurants: restaurants }) %>
+          </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/javascripts/adminDashboard.js"></script>
+</html>

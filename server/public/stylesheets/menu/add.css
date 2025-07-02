@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #e6e7e7;
+  margin: 0;
+}
+
+.add-dish-container {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e6e7e7;
+  font-size: 16px;
+  margin: 0;
+}
+
+.add-dish-wrapper {
+  max-width: 650px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 24px rgba(0,0,0,0.04);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.add-dish-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px; 
+  font-size: 16px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box; 
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-row .form-group {
+  flex: 1; 
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.next-button, .back-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.next-button {
+  background-color: #ff5722;
+  border: none;
+  color: #fff;
+}
+
+.back-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #ff5722;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-indicator {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e4e4e4;
+  color: #666;
+  font-weight: 500;
+}
+
+.step-indicator.active {
+  background-color: #ff5722;
+  color: #ffffff;
+}
+
+.step-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.step-label.active {
+  color: #ff5722;
+}
+
+.progress-divider {
+  width: 3rem;
+  height: 2px;
+  background-color: #ccc;
+  margin: 0 2rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px; 
+}
+
+.nutrition-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.nutrition-item label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #262728;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.nutrition-item input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+
+.image-upload {
+  border: 2px dashed #e4e4e4;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+  position: relative;
+  width: 92%;
+}
+
+.image-upload input[type="file"] {
+  display: none; 
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.upload-area p {
+  font-size: 16px;
+  color: #89898a;
+  margin: 0;
+}
+
+.upload-area .browse {
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.upload-recommendation {
+  font-size: 14px;
+  color: #89898a;
+}
+
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.preview-container p {
+  font-size: 14px;
+  color: #89898a;
+}
+
+.edit-mode .form-step {
+  display: block;
+}
+
+.edit-mode .step-indicator {
+  background-color: #ff5722; 
+  color: #fff;
+}
+
+.edit-mode .step-label {
+  color: #ff5722;
+}

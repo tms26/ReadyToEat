@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+body, :host {
+  background-color: #e6e7e7;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #e6e7e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.logo {
+  max-width: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.registration-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 500px;
+}
+
+.h2 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.back-button,
+.next-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.back-button {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #ff5722;
+}
+
+.next-button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: #ff5722;
+  font-weight: 600;
+  text-decoration: none;
+}

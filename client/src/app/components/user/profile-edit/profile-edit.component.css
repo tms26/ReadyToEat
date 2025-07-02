@@ -1,0 +1,95 @@
+.profile-bg {
+  min-height: 100vh;
+  background-color: #fff;
+  color: #333;
+  margin-top: 80px;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.card {
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+  border-radius: 16px;
+  background-color: #ffffff;
+}
+
+.card .card-header {
+  font-weight: 500;
+  font-weight: bold;
+}
+
+.card-header:first-child {
+  border-radius: 0.35rem 0.35rem 0 0;
+}
+
+.card-header {
+  padding: 1rem 1.35rem;
+  color: #fff;
+  margin-bottom: 0;
+  background-color: #212529;
+  border-bottom: 1px solid #ccc;
+}
+
+.form-control,
+.dataTable-input {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #333;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #212529;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.smallmb {
+  font-weight: 400 !important;
+}
+
+.nav-borders .nav-link.active {
+  color: #212529;
+  border-bottom-color: #212529;
+}
+.nav-borders .nav-link {
+  color: #666;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.btn {
+  color: #212529;
+  border: 1px solid #212529;
+  background-color: transparent;
+  border: 1px solid #212529;
+  font-weight: bold;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+}
+
+
+footer{
+margin-top: 158px;
+}

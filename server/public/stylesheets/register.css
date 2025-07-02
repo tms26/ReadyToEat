@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #e6e7e7 !important;
+}
+
+p {
+  font-size: 14px;
+}
+
+p a {
+  color: #ff5722;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.logo {
+  max-width: 380px;
+  height: auto;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-type-selection {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.user-type-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 180px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.customer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6e6e6;
+  border-radius: 8px;
+}
+
+.registration-wrapper {
+  max-width: 1136px;
+  margin: 0 auto;
+}
+
+.registration-intro {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.registration-form {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.user-type-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.user-type-label {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  display: flex !important;
+  align-items: center !important;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  border-bottom: 1px solid #ccc !important;
+}
+
+.progress-step {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.slider-input {
+  width: 100%;
+}
+
+#price-display {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.step-indicator {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: #666;
+  font-weight: 500;
+}
+
+.step-indicator.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.step-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.step-label.active {
+  color: #ff5722;
+}
+
+.progress-divider {
+  width: 3rem;
+  height: 2px;
+  background-color: #ccc;
+  margin: 0 2rem;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.form-input:invalid {
+  border: 2px solid red;
+}
+
+.form-input:valid {
+  border: 2px solid green;
+}
+
+.back-button,
+.next-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.back-button {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #ff5722;
+  text-decoration: none;
+}
+
+.next-button {
+  background-color: #ff5722;
+  border: none;
+  color: #fff;
+}
+
+.h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+.registration-container1 {
+  margin-top: 0; 
+}
+
+.logo-container1 {
+  margin-top: -2rem; 
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.logo-container1 .logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.back-button-container1 {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.back-button1 {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button1:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+/* Bootstrap Toast minimal styles */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1060;
+}
+.toast {
+  max-width: 350px;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+  opacity: 0;
+  transition: opacity 0.15s linear;
+  display: block;
+}
+.toast.show {
+  opacity: 1;
+}
+.toast .toast-body {
+  padding: 0.75rem 1.25rem;
+}
+.toast .btn-close {
+  filter: invert(1);
+}
+.toast .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

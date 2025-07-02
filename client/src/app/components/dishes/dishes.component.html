@@ -1,0 +1,137 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+/>
+
+<app-navbar></app-navbar>
+
+<body>
+  <!-- Header-->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Choose your dishes</h1>
+        <p class="lead fw-normal text-white-50 mb-0"></p>
+      </div>
+    </div>
+  </header>
+  <!-- Section-->
+  <div class="container px-4 px-lg-5 mt-5">
+    <!-- Filtros -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <form class="row g-3 align-items-end justify-content-center">
+          <div class="col-md-4 col-lg-3">
+            <label for="sort" class="form-label mb-1 fw-semibold">
+              <i class="bi bi-funnel"></i> Sort by
+            </label>
+            <select
+              id="sort"
+              class="form-select"
+              [(ngModel)]="selectedSort"
+              (change)="applyFilters()"
+              name="sort"
+            >
+              <option value="">Select</option>
+              <option value="priceLowToHigh">Price: Low to High</option>
+              <option value="priceHighToLow">Price: High to Low</option>
+              <option value="prepTimeLowToHigh">Preparation Time: Low to High</option>
+              <option value="prepTimeHighToLow">Preparation Time: High to Low</option>
+              <option value="portionSmallToLarge">Portion Size: Small to Large</option>
+              <option value="portionLargeToSmall">Portion Size: Large to Small</option>
+            </select>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <label for="category" class="form-label mb-1 fw-semibold">
+              <i class="bi bi-tags"></i> Category
+            </label>
+            <select
+              id="category"
+              class="form-select"
+              [(ngModel)]="selectedCategory"
+              (change)="applyFilters()"
+              name="category"
+            >
+              <option value="">All</option>
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+          </div>
+          <div class="col-md-4 col-lg-2 d-flex align-items-end">
+            <button
+              type="button"
+              class="btn btn-outline-secondary w-100"
+              (click)="resetFilters()"
+            >
+              <i class="bi bi-x-circle"></i> Clear Filters
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+    >
+      <div class="col mb-5" *ngFor="let dish of filteredDishes">
+        <div class="card h-100">
+          <img
+            class="card-img-top"
+            [src]="
+              dish.imagem
+                ? 'http://localhost:3000' + dish.imagem
+                : 'https://via.placeholder.com/300x200?text=No+Image'
+            "
+            alt="{{ dish.nome }}"
+            style="object-fit: cover; height: 200px"
+          />
+          <div class="card-body p-4">
+            <div class="text-center">
+              <h5 class="fw-bolder">{{ dish.nome }}</h5>
+              <p>{{ dish.descricao }}</p>
+              <p><strong>Preço:</strong> {{ dish.preco }} €</p>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div
+                  class="text-center button-group d-flex flex-column align-items-center gap-2"
+                >
+                  <a
+                    class="btn btn-outline-dark btn-sm rounded-pill fw-bold px-4"
+                    (click)="addToCart(dish)"
+                  >
+                    <i class="bi bi-cart-plus me-1"></i>
+                    Add to cart
+                  </a>
+                  <a
+                    class="btn btn-outline-dark btn-sm rounded-pill fw-bold px-4"
+                    [routerLink]="['/dishes', dish._id, 'details']"
+                  >
+                    <i class="bi bi-info-circle me-1"></i>
+                    View Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<div style="margin-left: 1.5rem; margin-bottom: 1.5rem; width: auto; z-index: 1050;">
+  <button class="btn custom-back-btn" (click)="goBack()">
+    <i class="bi bi-arrow-left"></i> Back
+  </button>
+</div>
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+  <div class="Bcontainer">
+    <p class="m-0 text-center text-white">Copyright &copy; ReadyToEat 2025</p>
+  </div>
+</footer>

@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #e6e7e7;
+  margin-top: 20px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e6e7e7;
+  color: black;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+header .logo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+header .logo img {
+  height: 60px;
+}
+
+header .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 50px 0 0;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.menu-card {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.menu-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.menu-card:hover {
+  background-color: #ccccccc0;
+}
+
+.add-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-menu:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-card-container {
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.menu-card {
+  width: 386px;
+  height: 380px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.menu-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu-card a.menu-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.edit-button {
+  border: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff5722;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.edit-button:hover {
+  background-color: #e64a19;
+}
+
+.delete-button {
+  border: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff5722;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+.delete-button:hover {
+  background-color: #e64a19;
+}
+
+.add-menu {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.add-menu:hover {
+  background-color: #e64a19;
+}
+
+h1.text-center {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.table-order-history {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 1rem;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-order-history th,
+.table-order-history td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-order-history thead th {
+  background-color: #ff5722; 
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e64a19; 
+}
+
+.table-order-history tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.table-order-history tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.table-order-history tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-order-history .badge {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.table-order-history .badge.bg-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.table-order-history .badge.bg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.table-order-history .badge.bg-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn{
+  border: none;
+  color:#fff;
+  background-color: #ff5722;
+  margin-top: 10px;
+}
+
+.btn:hover{
+  color: #fff;
+  background-color: #e64a19;
+}
+
+.btn-custom {
+  border: none;
+  background-color: #ff5722;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e64a19;
+}

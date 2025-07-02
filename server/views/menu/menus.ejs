@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menus</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/menu/menus.css" />
+    <link rel="stylesheet" href="/stylesheets/partials/navbar.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar', { user: user }) %>
+    <main>
+      <!-- Menus List -->
+      <% menus.forEach(menu => { %>
+      <div class="menu-card-container">
+        <a href="/menus/dishes?menuId=<%= menu._id %>" class="menu-link">
+          <div class="menu-card">
+            <img src="<%= menu.image %>" alt="<%= menu.name %>" />
+            <p><%= menu.name %></p>
+            <a
+              href="#"
+              class="edit-button"
+              data-id="<%= menu._id %>"
+              data-name="<%= menu.name %>"
+              data-bs-toggle="modal"
+              data-bs-target="#editMenuModal"
+              data-image="<%= menu.image %>"
+            >
+              Edit
+            </a>
+            <button class="delete-button" data-id="<%= menu._id %>">
+              Delete
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <!-- Add Menu Button -->
+      <% }) %> <% if (user.role === "restaurant" || user.role === "admin" ) { %>
+      <a
+        href="#"
+        class="add-menu"
+        data-bs-toggle="modal"
+        data-bs-target="#createMenuModal"
+        >+</a
+      >
+      <% } %>
+    </main>
+    <!-- Modal Edit Menu -->
+    <div
+      class="modal fade"
+      id="editMenuModal"
+      tabindex="-1"
+      aria-labelledby="editMenuModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="editMenuForm" enctype="multipart/form-data">
+            <input type="hidden" name="_id" id="editMenuId" />
+            <div class="modal-header">
+              <h5 class="modal-title" id="editMenuModalLabel">Edit Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Menu Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  id="editMenuName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Menu Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  name="image"
+                  id="editMenuImage"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Create Menu -->
+    <div
+      class="modal fade"
+      id="createMenuModal"
+      tabindex="-1"
+      aria-labelledby="createMenuModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="createMenuForm" enctype="multipart/form-data">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createMenuModalLabel">
+                Create New Menu
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Menu Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  id="createMenuName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Menu Image*</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  name="image"
+                  id="createMenuImage"
+                  accept="image/*"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Create Menu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascripts/menus.js"></script>
+    <% if (user.role === "restaurant") { %>
+      <script>
+        var restauranteId = "<%= user._id %>";
+      </script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/javascripts/restaurantOrderNotification.js"></script>
+    <% } %>
+  </body>
+</html>

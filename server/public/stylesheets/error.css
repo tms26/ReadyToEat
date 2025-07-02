@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f1f1f1;
+    text-align: left;
+    line-height: 0.9;
+    font-family: "Public Sans", sans-serif;
+}
+
+#error-stack {
+    display: none;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content img {
+    margin-right: 20px;
+    max-width: 100px;
+    height: auto;
+}
+
+.content div {
+    max-width: 380px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#errorMessage {
+    font-size: 1em;
+    color: #888;
+}
+
+#links {
+    font-size: 1em;
+}
+
+#links a {
+    text-decoration: none;
+    color: blue;
+}
+
+p {
+    margin: 0.5em 0;
+}

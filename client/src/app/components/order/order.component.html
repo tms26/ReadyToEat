@@ -1,0 +1,155 @@
+<app-navbar></app-navbar>
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Order History</h1>
+      <p class="lead fw-normal text-white-50 mb-0"></p>
+    </div>
+  </div>
+</header>
+<div class="container py-5">
+  <div *ngIf="loading" class="text-center">Loading...</div>
+  <div *ngIf="!loading && orders.length === 0" class="text-center text-muted">
+    No orders found.
+  </div>
+  <div *ngIf="!loading && orders.length > 0" class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Restaurant</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Dishes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ order.restaurantId?.restaurantName || "Unknown" }}</td>
+          <td>€{{ order.amount?.toFixed(2) }}</td>
+          <td>{{ order.date | date : "shortDate" }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <ul class="mb-0">
+              <li *ngFor="let dish of order.dishes">
+                {{ dish.dish?.nome || "Unnamed dish" }} - €{{ dish.dish?.preco?.toFixed(2) || "0.00" }}
+                <span *ngIf="dish.quantity">x{{ dish.quantity }}</span>
+              </li>
+            </ul>
+          </td>
+          <td>
+            <button
+              *ngIf="canCancel(order)"
+              class="btn btn-outline-dark mt-auto"
+              (click)="cancelOrder(order)"
+            >
+              Cancel
+            </button>
+            <button
+              *ngIf="order.status === 'Completed' && !order.reviewed"
+              class="btn btn-outline-dark mt-auto"
+              (click)="openReviewModal(order)"
+            >
+              Evaluate
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal de Confirmação de Cancelamento -->
+<div
+  class="modal fade"
+  id="cancelModal"
+  tabindex="-1"
+  aria-labelledby="cancelModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cancelModalLabel">Confirm Cancel</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure you want to cancel this order?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button type="button" class="btn btn-danger" (click)="confirmCancel()">
+          Yes, Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal de Avaliação -->
+<div
+  class="modal fade"
+  id="reviewModal"
+  tabindex="-1"
+  aria-labelledby="reviewModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form (ngSubmit)="submitReview()" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reviewModalLabel">Evaluate Order</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="reviewComment" class="form-label">Feedback</label>
+            <textarea
+              id="reviewComment"
+              class="form-control"
+              [(ngModel)]="reviewComment"
+              name="reviewComment"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="reviewImage" class="form-label"
+              >Picture(optional)</label
+            >
+            <input
+              type="file"
+              id="reviewImage"
+              class="form-control"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark mt-auto"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-outline-dark mt-auto">
+            Send Feedback
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

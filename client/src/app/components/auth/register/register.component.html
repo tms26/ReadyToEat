@@ -1,0 +1,83 @@
+<body>
+  <div class="logo-container">
+    <img
+      src="http://localhost:3000/images/readyToEat.jpg"
+      alt="ReadyToEat Logo"
+      class="logo"
+    />
+  </div>
+
+  <div class="registration-container">
+    <form
+      class="registration-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <input type="hidden" name="role" value="customer" />
+      <h2 class="h2">Register as Customer</h2>
+
+      <div class="form-group">
+        <label class="form-label">First Name*</label>
+        <input
+          type="text"
+          class="form-input"
+          formControlName="firstName"
+          placeholder="Enter first name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Last Name*</label>
+        <input
+          type="text"
+          class="form-input"
+          formControlName="lastName"
+          placeholder="Enter last name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email*</label>
+        <input
+          type="email"
+          class="form-input"
+          formControlName="email"
+          placeholder="Enter email address"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">NIF*</label>
+        <input
+          type="text"
+          class="form-input"
+          formControlName="nif"
+          placeholder="212345678"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password*</label>
+        <input
+          type="password"
+          class="form-input"
+          formControlName="password"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+
+      <div class="form-actions">
+        <a href="/" class="back-button">Back</a>
+        <button type="submit" class="next-button">Register</button>
+      </div>
+    </form>
+  </div>
+  <p style="text-align: center; margin-top: 1rem">
+    Already have an account? <a href="/login">Sign in</a>
+  </p>
+</body>

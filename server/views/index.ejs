@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReadyToEat - Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link rel="stylesheet" href="/stylesheets/partials/navbar.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar', { user: user }) %>
+
+    <!-- Hero Section -->
+    <section class="hero bg-light text-center py-5">
+      <div class="container">
+        <h1 class="display-4">Welcome to ReadyToEat</h1>
+        <p class="lead">
+          Discover the best restaurants and make your takeaway reservations in just a few clicks!
+        </p>
+        <a href="/menus" class="btn btn-primary btn-lg">Explore Menus</a>
+      </div>
+    </section>
+
+    <!-- Featured Events Section -->
+    <section class="featured-events py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Awards</h2>
+        <div class="row">
+          <!-- Event 1 -->
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img
+                src="/images/tpp.png"
+                class="card-img-top"
+                alt="Business Conference"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Top Takeaway Platform 2025</h5>
+                <p class="card-text">
+                  The best platform for takeaway reservations, recognized by the Food & Beverage Association.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Event 2 -->
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img
+                src="/images/cca.png"
+                class="card-img-top"
+                alt="Craft Workshops"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Customer Choice Award</h5>
+                <p class="card-text">
+                    Recognized for excellence in customer satisfaction and ease of use, making it the preferred choice for takeaway enthusiasts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Why Choose ReadyToEat?</h2>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+            <h5>Wide Variety of Restaurants</h5>
+            <p>
+              From local favorites to international cuisines, we have it all.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+            <h5>Fast and Easy Reservations</h5>
+            <p>
+              Reserve your takeaway meals in just a few clicks.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-star fa-3x text-primary mb-3"></i>
+            <h5>Top-Rated Restaurants</h5>
+            <p>
+              Enjoy meals from the best-rated restaurants in your area.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="call-to-action text-center py-5">
+      <div class="container">
+        <h2 class="mb-4">Ready to Order?</h2>
+        <p class="lead">
+          Browse our menus and reserve your favorite meals today!
+        </p>
+        <a href="/menus" class="btn btn-primary btn-lg">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p class="mb-1">
+          <a href="/index" class="text-white text-decoration-none">Terms</a> |
+          <a href="/index" class="text-white text-decoration-none">Privacy</a>
+        </p>
+        <p class="mb-0">&copy; 2025 ReadyToEat. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <% if (user.role === "restaurant") { %>
+      <script>
+        var restauranteId = "<%= user._id %>";
+      </script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/javascripts/restaurantOrderNotification.js"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+<app-navbar></app-navbar>
+
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Choose your restaurant</h1>
+    </div>
+  </div>
+</header>
+<div class="container px-4 px-lg-5 mt-5">
+  <!-- Filters Section -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <form class="row g-3 align-items-end justify-content-center">
+        <div class="col-md-4 col-lg-3">
+          <label for="sort" class="form-label mb-1 fw-semibold">
+            <i class="bi bi-funnel"></i> Sort by
+          </label>
+          <select
+            id="sort"
+            class="form-select"
+            [(ngModel)]="selectedSort"
+            (change)="applyFilters()"
+            name="sort"
+          >
+            <option value="">Select</option>
+            <option value="alphabeticalAZ">Alphabetical: A-Z</option>
+            <option value="alphabeticalZA">Alphabetical: Z-A</option>
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+            <option value="distanceLowToHigh">
+              Delivery Distance: Low to High
+            </option>
+            <option value="distanceHighToLow">
+              Delivery Distance: High to Low
+            </option>
+          </select>
+        </div>
+        <div class="col-md-4 col-lg-2 d-flex align-items-end">
+          <button
+            type="button"
+            class="btn btn-outline-secondary w-100"
+            (click)="resetFilters()"
+          >
+            <i class="bi bi-x-circle"></i> Clear Filters
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Restaurant List -->
+  <div
+    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+  >
+    <div class="col mb-5" *ngFor="let restaurant of filteredRestaurants">
+      <div class="card h-100">
+        <!-- Restaurant image -->
+        <img
+          class="card-img-top"
+          [src]="'http://localhost:3000' + restaurant.image"
+          alt="{{ restaurant.name }}"
+          style="object-fit: cover; height: 200px"
+        />
+        <!-- Restaurant details -->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <h5 class="fw-bolder">{{ restaurant.restaurantName }}</h5>
+            <p>{{ restaurant.description }}</p>
+            <p>
+              <i class="bi"></i>
+              <strong>Price per person:</strong>
+              {{ restaurant.pricePerPerson }} €
+            </p>
+            <p>
+              <i class="bi bi-geo-alt"></i>
+              <strong>Delivery distance:</strong>
+              {{ restaurant.deliveryDistance }} km
+            </p>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              [routerLink]="['/restaurants', restaurant._id, 'menus']"
+            >
+              View Menus
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; ReadyToEat 2025</p>
+  </div>
+</footer>

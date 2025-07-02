@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #e6e7e7;
+}
+
+.container {
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: none;
+  width: 380px;
+  background: none;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+}
+
+form button {
+  padding: 14px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+p {
+  font-size: 14px;
+}
+
+p a {
+  color: #ff5722;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.error-message {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}

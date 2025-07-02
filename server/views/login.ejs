@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/images/readyToEat.jpg" alt="Ready to Eat">
+        <% if (typeof errorMessage !== "undefined") { %>
+            <p class="error-message"><%= errorMessage %></p>
+        <% } %>
+        <form action="/login" method="POST">
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <p>Don't have an account? <a href="/register">Sign up</a></p>
+</body>
+</html>

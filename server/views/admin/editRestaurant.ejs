@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Restaurant</title>
+    <link rel="stylesheet" href="/stylesheets/register.css" />
+  </head>
+  <body>
+    <div class="logo-container">
+      <img src="/images/readyToEat.jpg" alt="ReadyToEat Logo" class="logo" />
+    </div>
+
+    <div class="registration-container">
+      <div class="registration-wrapper">
+        <form
+          action="/admin/restaurants/restaurant/edit"
+          method="POST"
+          class="registration-form"
+          enctype="multipart/form-data"
+        >
+          <input
+            type="hidden"
+            name="restaurantId"
+            value="<%= restaurant._id %>"
+          />
+          <div class="form-group">
+            <label class="form-label">Restaurant Name*</label>
+            <input
+              type="text"
+              class="form-input"
+              name="restaurantName"
+              value="<%= restaurant.restaurantName %>"
+              placeholder="Enter restaurant name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address*</label>
+            <input
+              type="text"
+              class="form-input"
+              name="address"
+              value="<%= restaurant.address %>"
+              placeholder="Enter restaurant address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone*</label>
+            <input
+              type="text"
+              class="form-input"
+              name="phone"
+              value="<%= restaurant.phone %>"
+              placeholder="912345678"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="price-slider" class="form-label"
+              >Price per Person*</label
+            >
+            <input
+              id="price-slider"
+              type="range"
+              min="5"
+              max="500"
+              step="1"
+              value="<%= restaurant.pricePerPerson %>"
+              oninput="updatePriceDisplay(this.value)"
+              class="slider-input"
+              name="pricePerPerson"
+              required
+            />
+            <p id="price-display">
+              Selected Price: €<%= restaurant.pricePerPerson %>
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delivery Distance (km)*</label>
+            <input
+              type="number"
+              class="form-input"
+              name="deliveryDistance"
+              min="1"
+              value="<%= restaurant.deliveryDistance %>"
+              placeholder="Enter delivery distance in km"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Image*</label>
+            <input
+              type="file"
+              class="form-input"
+              name="image"
+              accept="image/*"
+            />
+            <% if (restaurant.image) { %>
+            <div style="margin-top: 10px">
+              <img
+                src="<%= restaurant.image %>"
+                alt="Restaurant Image"
+                style="max-width: 200px; max-height: 120px"
+              />
+            </div>
+            <% } %>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="next-button">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="back-button-container1">
+      <button class="back-button1" onclick="window.location.href='/admin'">
+        Back
+      </button>
+    </div>
+    <script>
+      function updatePriceDisplay(value) {
+        document.getElementById(
+          "price-display"
+        ).textContent = `Selected Price: €${value}`;
+      }
+    </script>
+  </body>
+</html>

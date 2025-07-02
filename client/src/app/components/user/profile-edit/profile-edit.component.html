@@ -1,0 +1,148 @@
+<app-navbar></app-navbar>
+
+<header class="bg-dark py-4">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Edit Profile</h1>
+      <p class="lead fw-normal text-white-50 mb-0"></p>
+    </div>
+  </div>
+</header>
+
+<div class="container-xl px-4 mt-4">
+  <!-- Account page navigation-->
+  <nav class="nav nav-borders">
+    <a class="nav-link active" [routerLink]="'/user/profile/edit'">Profile</a>
+    <a class="nav-link" [routerLink]="'/user/profile/chart'">Chart</a>
+    <a class="nav-link" [routerLink]="'/user/profile/security'">Security</a>
+  </nav>
+  <hr class="mt-0 mb-4" />
+  <div class="row">
+    <div class="col-xl-8">
+      <!-- Account details card-->
+      <div class="card mb-4">
+        <div class="card-header">
+          {{
+            user?.role === "restaurant"
+              ? "Restaurant Profile Details"
+              : "Profile Details"
+          }}
+        </div>
+        <div class="card-body">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="row gx-3 mb-3">
+              <div class="col-md-6">
+                <label class="smallmb" for="inputFirstName">First Name*</label>
+                <input
+                  class="form-control"
+                  id="inputFirstName"
+                  type="text"
+                  formControlName="firstName"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="smallmb" for="inputLastName">Last Name*</label>
+                <input
+                  class="form-control"
+                  id="inputLastName"
+                  type="text"
+                  formControlName="lastName"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="smallmb" for="inputEmailAddress">Email*</label>
+              <input
+                class="form-control"
+                id="inputEmailAddress"
+                type="email"
+                formControlName="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="smallmb" for="inputNIF">NIF*</label>
+              <input
+                class="form-control"
+                id="inputNIF"
+                type="text"
+                formControlName="nif"
+                required
+              />
+            </div>
+
+            <!-- Campos extra para restaurante -->
+            <div *ngIf="user?.role === 'restaurant'">
+              <div class="mb-3">
+                <label class="smallmb" for="inputRestaurantName"
+                  >Restaurant Name*</label
+                >
+                <input
+                  class="form-control"
+                  id="inputRestaurantName"
+                  type="text"
+                  formControlName="restaurantName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="smallmb" for="inputAddress">Address*</label>
+                <input
+                  class="form-control"
+                  id="inputAddress"
+                  type="text"
+                  formControlName="address"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="smallmb" for="inputPhone">Phone*</label>
+                <input
+                  class="form-control"
+                  id="inputPhone"
+                  type="text"
+                  formControlName="phone"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="smallmb" for="pricePerPerson"
+                  >Price per Person*</label
+                >
+                <input
+                  class="form-control"
+                  id="pricePerPerson"
+                  type="number"
+                  formControlName="pricePerPerson"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="profileForm.invalid"
+            >
+              Save changes
+            </button>
+          </form>
+          <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="successMessage" class="alert alert-success mt-2">
+            {{ successMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; ReadyToEat 2025</p>
+  </div>
+</footer>

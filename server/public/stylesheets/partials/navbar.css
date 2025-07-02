@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.navbar {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #505250;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-logo img {
+  height: 60px;
+}
+
+.navbar-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 25px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: #bcbcbc;
+}
+
+.navbar-user {
+  font-size: 16px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000;
+  width: 120px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown .dropdown-toggle::after {
+    content: none;
+  }
+  
+  .dropdown-toggle::before {
+      position: absolute; 
+      right: 10px;
+  }
+  
